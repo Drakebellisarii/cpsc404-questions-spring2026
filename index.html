@@ -97,12 +97,6 @@
             color: #f0f0f0;
         }
 
-        .question-card .content h1,
-        .question-card .content h2,
-        .question-card .content h3 {
-            display: none;
-        }
-
         .question-card .content p {
             margin-bottom: 1rem;
         }
@@ -160,6 +154,23 @@
 
         let allQuestions = [];   // full set for selected week
         let remaining = [];      // not yet shown
+
+        // Strip metadata lines (Student, Date, headings) and keep just the question content
+        function cleanBody(text) {
+            return text
+                .split('\n')
+                .filter(line => {
+                    const trimmed = line.trim();
+                    // Remove top-level and second-level headings
+                    if (/^#{1,2}\s/.test(trimmed)) return false;
+                    // Remove **Student:** and **Date:** lines
+                    if (/^\*\*Student[:：]\*\*/i.test(trimmed)) return false;
+                    if (/^\*\*Date[:：]\*\*/i.test(trimmed)) return false;
+                    return true;
+                })
+                .join('\n')
+                .trim();
+        }
 
         // Extract a readable author name from the filename
         function authorFromFilename(filename) {
@@ -235,7 +246,7 @@
         }
 
         function showQuestion(q) {
-            const rendered = marked.parse(q.body);
+            const rendered = marked.parse(cleanBody(q.body));
             card.innerHTML = `
                 <div class="author">${q.author}</div>
                 <div class="content">${rendered}</div>
