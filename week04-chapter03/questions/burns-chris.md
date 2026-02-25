@@ -9,4 +9,4 @@ In “What Managers Need From Us”, you say that “A good trusting relationshi
 
 ## Context (optional)
 
-In any environment with some sort of hierarchy, nobody wants to have to tell a higher up that they can’t solve a problem. However, people don’t want to seem incompetent when they do report a problem they can’t solve. In the case of the business world, you wouldn’t want to make your manager think less about your ability or have less trust in you.
+In any environment with some sort of hierarchy, nobody wants to have to tell a higher up that they can’t solve a problem. However, people don’t want to seem incompetent when they do report a problem they can’t solve. In the case of the business world, you wouldn’t want to make your manager think less about your ability or have less trust in you.git 
